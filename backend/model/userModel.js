@@ -8,5 +8,19 @@ const userSchema = new mongoose.Schema({
     email : {
         type :String ,
         required : true,
+        unique : true,
+    },
+    password : {
+       type : String ,
+       required : true, 
+    },
+    cartData : {
+        type : Object,
+        default : {},
     }
-})
+
+}, { timestamps : true , minimize : false}) ;
+
+const User = new mongoose.model("User", userSchema);
+
+export default User;
